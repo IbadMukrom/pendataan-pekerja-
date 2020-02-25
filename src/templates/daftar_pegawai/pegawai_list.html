@@ -1,0 +1,42 @@
+{% extends "daftar_pegawai/base.html" %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Nama</td>
+            <td>Umur</td>
+            <td>Nomor Hp</td>
+            <td> Posisi </td>
+            <td>
+                <a href="{% url 'pekerja_form' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Tambah Pegawai
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pegawai in pegawai_list %}
+            <tr>
+                <td>{{pegawai.nama}}</td>
+                <td>{{pegawai.umur}} tahun</td>
+                <td>{{pegawai.nomor_hp}}</td>
+                <td>{{pegawai.posisi}}</td>
+                <td>
+                    <a href="{% url 'pekerja_update' pegawai.id %}" class="btn text-secondary px-0" onclick="return confirm('edit data ?')">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'pekerja hapus' pegawai.id %}" method="post" class="d-inline" onclick="return confirm('hapus data ? ')">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
+
