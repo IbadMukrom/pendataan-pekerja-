@@ -16,3 +16,4 @@ class PegawaiForm(forms.ModelForm):
             super(PegawaiForm,self).__init__(*args, **kwargs)
             self.fields['posisi'].empty.labels = "Select"
             self.fields['umur'].required = True
+

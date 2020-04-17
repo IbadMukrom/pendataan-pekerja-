@@ -12,8 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# from django.core.wsgi import get_wsgi_application
+# from whitenoise.django import DjangoWhiteNoise
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# application = get_wsgi_application(src)
+# application = DjangoWhiteNoise(src)
 
 
 # Quick-start development settings - unsuitable for production
@@ -50,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'master.urls'
@@ -89,7 +97,7 @@ DATABASES = {
         'NAME': 'pekerja',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'a',
         'PORT':'8000',
     }
 
@@ -132,7 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/pekerja/'
 LOGOUT_REDIRECT_URL ='login'

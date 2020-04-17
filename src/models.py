@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Posisi(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, null= False, blank= False)
 
     def __str__(self):
         return self.title
@@ -15,3 +15,6 @@ class Pegawai(models.Model):
     umur = models.IntegerField()
     nomor_hp = models.IntegerField()
     posisi = models.ForeignKey(Posisi, on_delete=models.CASCADE)
+
+    def __str__ (self):
+        return self.nama

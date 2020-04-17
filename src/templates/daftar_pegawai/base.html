@@ -13,19 +13,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-md-10 offset-md-1 mt-2">
+    <!-- <div class="container"> -->
+        <div class="col-md-10 offset-md-1 mt-5">
             <div class="jumbotron">
-                <h1 class="display-7">Daftar Pekerja</h1>
+                <div class="container">
+                <h1 class="display-7">Daftar Pekerja</h1>              
                 <p class="lead font-italic">Simple Django Project</p>
-                <a href="{% url 'logout' %}"><i class="fa fa-sign-out" style="font-size:25px">Logout</i></a>
-                <hr class="my-10">
+                <a href="{% url 'logout' %}"><i class="btn btn-info fa fa-sign-out" style="font-size:25px">Logout</i></a>
+                <a href="{% url 'posisi_list'%}"><i class="btn btn-info float-md-right fa fa-list" style="font-size: 23px;">Posisi List</i></a>
+                <h5 style="text-align: center; font-style: underline;">welcome "{{user.username}}"</h5>
+                
+                <hr class="my-4">
                 {% block content %}
                 {% endblock content %}
-                
+                </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -6,9 +6,9 @@
     <div class="card">
         <div class="card-body">
             <h1 style="text-align: center;">Daftar Posisi</h1>
-            <a href="{% url 'tambah_posisi' %}" class="btn btn-dark"><i class="fa fa-plus"></i> tambah posisi</a>
+            <a href="{% url 'tambah_posisi' %}" class="btn btn-secondary"><i class="fa fa-plus"></i> tambah posisi</a>
             <a href="{% url 'pekerja_list' %}" class="btn btn-secondary float-right">
-                <i class="fas fa-stream"></i> Back to list
+                <i class="fas fa-stream"></i> Pekerja List
            </a>
             <hr>
             
@@ -19,9 +19,9 @@
                         <tr>
                         <td>{{posisi.title}} </td>
                         <td>
-                            <a href="{% url 'hapus_posisi' posisi.id %}" onclick="return confirm ('hapus posisi ?')">Hapus</a>
+                            <a href="{% url 'hapus_posisi' posisi.id %}" onclick="return confirm ('hapus posisi ?')"  class="btn btn-danger float-right">Hapus</a>
                             |
-                            <a href="{% url 'edit' posisi.id %}">Edit</a>
+                            <a href="{% url 'edit' posisi.id %}"class="btn btn-warning float-right" onclick= "return confirm('edit posisi ?')" >Edit</a>
                         </td>
                         </tr>
                         {% endfor %}                    

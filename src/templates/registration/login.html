@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Login Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -24,10 +24,13 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd" name="password">
               </div>
-              <button type="submit" class="btn btn-warning">Submit</button>
-          </form>
+              <hr>
+              <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              <a href="{% url 'signup' %}" class="btn btn-info btn-sm"> you have no account? Sign up</a>
+              
+          </form>            
         </div>
       </div>
-      
 </body>
+
 </html>
